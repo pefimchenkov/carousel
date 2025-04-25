@@ -1,0 +1,43 @@
+@use 'tailwindcss/base' as *;
+@use 'tailwindcss/components' as *;
+@use 'tailwindcss/utilities' as *;
+
+$tablet: '(max-width: 75rem)';
+$phone: '(max-width: 41.5rem)';
+
+@mixin tablet {
+    @media screen and #{$tablet} {
+        @content;
+    }
+}
+
+@mixin phone {
+    @media screen and #{$phone} {
+        @content;
+    }
+}
+
+html {
+    font-size: 10px;
+    letter-spacing: normal;
+}
+
+body
+{
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.container {
+    width: 100%;
+    max-width: 128rem;
+    padding: 0 4rem;
+    margin: 0 auto;
+  
+    @include tablet {
+      padding: 0 3rem;
+    }
+  
+    @include phone {
+      padding: 0 1.6rem;
+    }
+  }
