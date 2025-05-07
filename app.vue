@@ -1,13 +1,13 @@
 <template>
-  <div class="container">
-    <NuxtLayout class="flex justify-center items-center flex-col w-[130rem]">
-      <Carousel :data />
-    </NuxtLayout>
+  <div id="app" class="container">
+      <Header :articlesUrl />
+        <Carousel :data />
+      <Footer :articlesUrl />
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
 
-import data from './store/index.js'
+import { data, articlesUrl } from './store/index'
   
 </script>

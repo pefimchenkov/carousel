@@ -2,8 +2,11 @@
 @use 'tailwindcss/components' as *;
 @use 'tailwindcss/utilities' as *;
 
+@use 'variables.scss' as *;
+
 $tablet: '(max-width: 75rem)';
 $phone: '(max-width: 41.5rem)';
+
 
 @mixin tablet {
     @media screen and #{$tablet} {
@@ -24,20 +27,247 @@ html {
 
 body
 {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: 'Open Sans';
+}
+
+.icon {
+  color: $primary_color;
+  font-size: 1rem;
 }
 
 .container {
-    width: 100%;
-    max-width: 128rem;
-    padding: 0 4rem;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 128rem;
+  padding: 0 3rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100dvh;
+
+  @include tablet {
+    padding: 0 2rem;
+  }
+
+  @include phone {
+    max-width: 36rem;
+  }
+}
+
+.header {
+
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2.2rem;
+  width: 100%;
+  align-items: center;
   
-    @include tablet {
-      padding: 0 3rem;
+
+  @include tablet() {
+    width: 688px;
+  }
+
+  @include phone() {
+    width: 328px;
+  }
+
+  &-title {
+    color: $primary_color;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+
+    @include phone() {
+      font-size: 2rem;
     }
-  
-    @include phone {
-      padding: 0 1.6rem;
+
+  }
+
+  &-all-articles {
+    color: $primary_color;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    @include phone() {
+      display: none;
     }
   }
+
+}
+
+
+
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  @include tablet() {
+    width: 688px;
+  }
+
+  @include phone() {
+    width: 328px;
+  }
+}
+
+.slider {
+  width: 100%;
+  overflow: hidden;
+
+  @include tablet() {
+    padding: 0 0.7rem;
+    width: 100%;
+  }
+
+  @include phone() {
+    padding: 0;
+    width: 100%;
+  }
+  
+
+
+  &-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+
+  }
+
+
+  &-handler-left {
+    font-size: 2rem;
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    @include tablet() {
+      width: 5rem;
+      justify-content: start;
+    }
+
+    @include phone() {
+      display: none;
+    }
+  }
+
+  &-handler-right {
+    font-size: 2rem;
+    width: 8rem;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+
+    @include tablet() {
+      width: 5rem;
+      justify-content: end;
+    }
+
+    @include phone() {
+      display: none;
+    }
+  }
+
+  &-card {
+    border: 1px solid $border_color;
+    border-radius: 10px;
+    height: 45.4rem;
+    min-width: 34.6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 1rem;
+    cursor: pointer;
+
+    @include tablet() {
+      min-width: 28.4rem;
+    }
+
+    
+  }
+
+  &-card-img-container {
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+  }
+
+  &-card-img {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 100%;
+    height: inherit;
+    object-fit: cover;
+  }
+
+  &-card-title {
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: $primary_color;
+    padding: 0.5rem 2rem;
+    min-height: 100px;
+
+    @include tablet() {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      max-height: 52px;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    @include phone() {
+      font-size: 1.8rem;
+      line-height: 1.7
+    }
+
+    
+  }
+
+  &-card-desc {
+    width: 100%;
+    font-size: 1.7rem;
+    font-weight: 400;
+    color: $secondary_color;
+    padding: 0.5rem 2rem;
+    line-height: 1.35;
+  }
+
+  &-icon {
+    color: $primary_color;
+  }
+}
+
+.footer {
+  align-self: start;
+  width: 9rem;
+
+  &-all-articles {
+
+    margin-top: 3rem;
+    color: $primary_color;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    display: none;
+
+    @include tablet() {
+      display: none;
+    }
+
+    @include phone() {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

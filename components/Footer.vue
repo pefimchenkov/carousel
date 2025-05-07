@@ -1,19 +1,17 @@
 <template>
-    <div class="header">
-        <div class="header-title">
-            Статьи о путешествиях
-        </div>
+    <span class="footer">
         <NuxtLink
             :to="articlesUrl"
-            target="_blank" class="header-all-articles">
-            Все статьи
-            &nbsp;
+            target="_blank"
+            class="footer-all-articles">
+                Все статьи &nbsp;
             <Icon
                 name="material-symbols:arrow-forward-ios-rounded"
-                class="header-icons text-sm"
+                class="icon"
+                style="position: relative; top: 1px"
             />
         </NuxtLink>
-    </div>
+    </span>
 </template>
 
 <script lang="ts" setup>
@@ -25,5 +23,4 @@ const { articlesUrl } = defineProps<{
 </script>
 
 <style>
-
 </style>
